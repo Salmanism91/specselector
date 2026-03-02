@@ -711,7 +711,7 @@ async function boot() {
 
   try {
     // Load bonded.json (required)
-    const r1 = await fetch('data/bonded.json');
+    const r1 = await fetch('https://salmanism91.github.io/specselector/data/bonded.json');
     if (!r1.ok) throw new Error('Could not load data/bonded.json — ' + r1.status);
     DB.bonded = await r1.json();
     setLoadingBar(60);
@@ -750,7 +750,7 @@ async function boot() {
 
 async function tryLoadDB(name, setter, cardId, badgeId) {
   try {
-    const r = await fetch(`data/${name}.json`);
+    const r = await fetch(`https://salmanism91.github.io/specselector/data/${name}.json`);
     if (!r.ok) return;
     setter(await r.json());
     document.getElementById(cardId).classList.remove('disabled');
